@@ -1,0 +1,23 @@
+#### Various paths
+PATH=/Applications/Server.app/Contents/ServerRoot/usr/bin:$PATH
+
+
+
+
+
+#   cleanupDS:  Recursively delete .DS_Store files
+#   -------------------------------------------------------------------
+    alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+
+
+### SSL keying 
+1kN() { openssl req -new -newkey rsa:2048 -nodes -sha256 -out "$1.sha256.csr" -keyout "$1.key"; mkdir /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1; cp $1.sha256.csr /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.sha256.csr; cp $1.key /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.key; }
+
+### SSL key crt verify
+1kC() { ks=`openssl rsa -modulus -noout -in $1 | openssl md5`; cs=`openssl x509 -modulus -noout -in $2 | openssl md5`; [[ "$ks" == "$cs" ]] && echo "Bingo Match" || echo "Epic Failure"; }
+
+### SSL combine certs
+1cC() { cat $1 > combined.crt; cat $2 >> combined.crt;} 
+ 
+### Super copy file to clipboard
+1sC() { cat "$1" | pbcopy;}
