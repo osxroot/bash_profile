@@ -21,3 +21,6 @@ PATH=/Applications/Server.app/Contents/ServerRoot/usr/bin:$PATH
  
 ### Super copy file to clipboard
 1sC() { cat "$1" | pbcopy;}
+
+### create backup file
+1bK() { cp -v $1{,.bak};}
