@@ -1,7 +1,10 @@
 #### Various paths
 PATH=/Applications/Server.app/Contents/ServerRoot/usr/bin:$PATH
 
+### aliases
 
+# kill ssh tunnel
+alias ktun='kill `ps -ax | grep "ssh -f" | grep -v "grep" | awk '{print$1}'`'
 
 
 
