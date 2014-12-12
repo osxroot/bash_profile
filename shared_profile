@@ -11,16 +11,19 @@ PATH=/Applications/Server.app/Contents/ServerRoot/usr/bin:$PATH
 
 
 ### SSL keying 
-1kN() { openssl req -new -newkey rsa:2048 -nodes -sha256 -out "$1.sha256.csr" -keyout "$1.key"; mkdir /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1; cp $1.sha256.csr /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.sha256.csr; cp $1.key /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.key; }
+1keyNow() { openssl req -new -newkey rsa:2048 -nodes -sha256 -out "$1.sha256.csr" -keyout "$1.key"; mkdir /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1; cp $1.sha256.csr /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.sha256.csr; cp $1.key /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.key; }
 
 ### SSL key crt verify
-1kC() { ks=`openssl rsa -modulus -noout -in $1 | openssl md5`; cs=`openssl x509 -modulus -noout -in $2 | openssl md5`; [[ "$ks" == "$cs" ]] && echo "Bingo Match" || echo "Epic Failure"; }
+1keyCheck() { ks=`openssl rsa -modulus -noout -in $1 | openssl md5`; cs=`openssl x509 -modulus -noout -in $2 | openssl md5`; [[ "$ks" == "$cs" ]] && echo "Bingo Match" || echo "Epic Failure"; }
 
 ### SSL combine certs
-1cC() { cat $1 > combined.crt; cat $2 >> combined.crt;} 
+1comCerts() { cat $1 > combined.crt; cat $2 >> combined.crt;} 
  
 ### Super copy file to clipboard
-1sC() { cat "$1" | pbcopy;}
+1supCopy() { cat "$1" | pbcopy;}
 
 ### create backup file
-1bK() { cp -v $1{,.bak};}
+1baK() { cp -v $1{,.bak};}
+
+### ssh tunnel
+1tun() { ssh -f $1@$2 -L 5910:$3:5900 -N; }
