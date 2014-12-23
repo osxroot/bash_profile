@@ -1,5 +1,8 @@
 #!/bin/bash
 
+### install this script with below
+### curl -O http://git.io/9OZ_tQ
+
 ####-> Bash Profile installer/updater script
 
 ## Set variables for profiles you want
