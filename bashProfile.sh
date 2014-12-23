@@ -5,6 +5,8 @@
 
 ####-> Bash Profile installer/updater script
 
+sudo -s
+
 ## Set variables for profiles you want
 
 part1="jld_profile"
@@ -28,8 +30,8 @@ cat $HOME/$part2 >> /tmp/.bash_profile
 cmp -s $HOME/.bash_profile /tmp/.bash_profile > /dev/null
 	if [ $? -eq 1 ]; then
 		cat /tmp/.bash_profile > $HOME/.bash_profile
-		source $HOME/.bash_profile
 		rm /tmp/.bash_profile
+		source $HOME/.bash_profile
 	else
 		rm /tmp/.bash_profile
 	fi
