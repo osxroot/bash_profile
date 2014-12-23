@@ -6,6 +6,7 @@ alias l='ls -al'
 alias BS='source ~/.bash_profile'
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
+alias ~~="cd ~/Dropbox/osxroot.com/SSLKeys/" # ~~:          OPens SSL keys folder in Dropbox
 alias c='clear'
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
