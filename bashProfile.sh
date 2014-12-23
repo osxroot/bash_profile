@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### install this script with below
-### curl -O http://git.io/9OZ_tQ
+### curl -O http://goo.gl/jTd7bJ
 
 ####-> Bash Profile installer/updater script
 
