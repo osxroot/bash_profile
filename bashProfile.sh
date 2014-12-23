@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### install this script with below
-### curl -O http://goo.gl/jTd7bJ
+### curl -O https://raw.githubusercontent.com/osxroot/bash_profile/master/bashProfile.sh
 
 ####-> Bash Profile installer/updater script
 
