@@ -14,3 +14,6 @@ alias .3='cd ../../../'                     # Go back 3 directory levels
 alias .4='cd ../../../../'                  # Go back 4 directory levels
 alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'
+alias mailconf="cd /Library/Server/Mail/Config"
+alias spamass="cd /Library/Server/Mail/Config/spamassassin"
+alias bpu="sudo -s /usr/local/007/bup.sh"
