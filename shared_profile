@@ -17,7 +17,7 @@ alias ktun='kill `ps -ax | grep "ssh -f" | grep -v "grep" | awk '{print$1}'`'
 1keyNow() { openssl req -new -newkey rsa:2048 -nodes -sha256 -out "$1.sha256.csr" -keyout "$1.key"; mkdir /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1; cp $1.sha256.csr /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.sha256.csr; cp $1.key /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/$1.key; }
 
 ### SSL self signed cert
-1keySelf() {openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "$1.self.key" -out "$1.self.crt"; mkdir /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1; cp "$1.self.crt" /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/"$1.self.crt"; cp "$1.self.key" /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/"$1.self.key"; }
+1keySelf() { openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "$1.self.key" -out "$1.self.crt"; mkdir /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1; cp "$1.self.crt" /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/"$1.self.crt"; cp "$1.self.key" /Users/shiro/Dropbox/osxroot.com/SSLKeys/$1/"$1.self.key"; }
 
 ### SSL key crt verify
 1keyCheck() { ks=`openssl rsa -modulus -noout -in $1 | openssl md5`; cs=`openssl x509 -modulus -noout -in $2 | openssl md5`; [[ "$ks" == "$cs" ]] && echo "Bingo Match" || echo "Epic Failure"; }
